@@ -24,13 +24,14 @@ class Alumnos():
             for row in self.cursor:
                 r = {
                     'id_persona' : row[0],
-                    'nombre' : row[1],
-                    'ap_paterno' : row[2],
-                    'ap_materno' : row[3],
-                    'edad' : row[4],
-                    'fecha_nac' : row[5],
-                    'genero' : row[6],
-                    'estado' : row[7],
+                    'matricula' : row[1],
+                    'nombre' : row[2],
+                    'ap_paterno' : row[3],
+                    'ap_materno' : row[4],
+                    'edad' : row[5],
+                    'fecha_nac' : row[6],
+                    'genero' : row[7],
+                    'estado' : row[8],
                     }
                 result.append(r)
             self.cursor.close()

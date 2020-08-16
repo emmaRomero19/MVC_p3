@@ -1,10 +1,15 @@
 import web
+import mvc.model.model as alumnos
+
+model_alumno = alumnos.Alumnos()
+
 render=web.template.render('mvc/views/alumnos/')
 
 class Lista:
     def GET(self):
         try:
-            return render.list(None,None,None,None,None,None,None,None)
+            result=model_alumno.select()
+            return render.list(result)
         except Exception as e:
             result=[]    
             result.append('error'+ str(e.args))

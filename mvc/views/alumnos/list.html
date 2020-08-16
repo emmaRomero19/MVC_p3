@@ -1,4 +1,4 @@
-$def with(matricula,name,paterno,materno,edad,fecha,genero,state)
+$def with(result)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +14,7 @@ $def with(matricula,name,paterno,materno,edad,fecha,genero,state)
     <table class="hover">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>MATRICULA</th>
                 <th>NAME</th>
                 <th>FISRT SURNAME</th>
@@ -28,43 +29,22 @@ $def with(matricula,name,paterno,materno,edad,fecha,genero,state)
             </tr>
           </thead>
           <tbody>
-            <tr>
-                $if matricula:
-                    <td>$matricula</td>
-                $else:
-                    <td></td>
-                $if name:
-                    <td>$name</td>
-                $else:
-                    <td></td>
-                $if paterno:
-                    <td>$paterno</td>
-                $else:
-                    <td></td>
-                $if materno:
-                    <td>$materno</td>
-                $else:
-                    <td></td>
-                $if edad:
-                    <td>$edad</td>
-                $else:
-                    <td></td>
-                $if fecha:    
-                    <td>$fecha</td>
-                $else:
-                    <td></td>
-                $if genero:
-                    <td>$genero</td>
-                $else:
-                    <td></td>
-                $if state:    
-                    <td>$state</td>
-                $else:
-                    <td></td>
-                <td> <a class="button small expanded" style="background-color:rgb(255, 201, 201); color: red;" href="/delete/?matricula=$matricula&name=$name&paterno=$paterno&materno=$materno&edad=$edad&fecha=$fecha&genero=$genero&state=$state">DELETE</a></td>
-                <td> <a class="button small expanded" style="background-color: rgb(255, 224, 195); color: rgb(255, 123, 0);" href="/update" type="submit">UPDATE</a></td>
-                <td> <a class="button small expanded" style="background-color: rgb(255, 247, 0); color: rgb(0, 0, 0);" href="/view?matricula=$matricula&name=$name&paterno=$paterno&materno=$materno&edad=$edad&fecha=$fecha&genero=$genero&state=$state">VIEW</a></td>            
-            </tr>
+            $for row in result:
+                <tr>
+                    <td>$row['id_persona']</td>
+                    <td>$row['matricula']</td>
+                    <td>$row['nombre']</td>
+                    <td>$row['ap_paterno']</td>
+                    <td>$row['ap_materno']</td>
+                    <td>$row['edad']</td>
+                    <td>$row['fecha_nac']</td>
+                    <td>$row['genero']</td>
+                    <td>$row['estado']</td>
+
+                    <td> <a class="button small expanded" style="background-color:rgb(255, 201, 201); color: red;" href="">DELETE</a></td>
+                    <td> <a class="button small expanded" style="background-color: rgb(255, 224, 195); color: rgb(255, 123, 0);" href="/update" type="submit">UPDATE</a></td>
+                    <td> <a class="button small expanded" style="background-color: rgb(255, 247, 0); color: rgb(0, 0, 0);" href="">VIEW</a></td>            
+                </tr>
           </tbody>
     </table>
 </body>
